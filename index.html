@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Days Challenge</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="icon" href="888.png" type="image/png">
+</head>
+
+<body>
+  <h1>🔥 100 Days Challenge</h1>
+  <p>TAKE ACTION OR DO NOTHING | STAY HARD!</p>
+  <div class="grid" id="grid"></div>
+
+  <footer></footer>
+
+  <div id="congratulationModal">
+    <div class="content">
+      <h2>🎉 Congratulations! 🎉</h2>
+      <p>You have completed the 100 Days Challenge!</p>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <audio id="congratulationSound" src="" preload="auto"></audio>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const modal = document.getElementById('congratulationModal');
+    const congratulationSound = document.getElementById('congratulationSound');
+    let progress = JSON.parse(localStorage.getItem('progress100Days')) || [];
+
+    for (let i = 1; i <= 100; i++) {
+      const box = document.createElement('div');
+      box.classList.add('day');
+      box.textContent = i;
+      if (progress.includes(i)) {
+        box.classList.add('completed');
+      }
+      box.addEventListener('click', () => {
+        box.classList.toggle('completed');
+        if (box.classList.contains('completed')) {
+          progress.push(i);
+        } else {
+          progress = progress.filter(day => day !== i);
+        }
+        localStorage.setItem('progress100Days', JSON.stringify(progress));
+
+        if (progress.length === 100) {
+          congratulationSound.play();
+          modal.style.display = 'flex';
+        }
+      });
+      grid.appendChild(box);
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

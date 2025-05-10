@@ -1,0 +1,130 @@
+body {
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #bbbbbb;
+      font-weight: 400;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+      gap: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .day {
+      width: 50px;
+      height: 50px;
+      background-color: #1e1e2f;
+      border: 2px solid #3e3e5e;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      color: #ccc;
+      transition: background-color 0.3s, transform 0.2s, color 0.3s;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .day:focus {
+      outline: none;
+    }
+
+    .day:hover {
+      background-color: #3b3b5c;
+      color: #fff;
+    }
+
+    .day.completed {
+      background-color: #ae274f;
+      color: #ffffff;
+      box-shadow: 0 0 8px #ff0000;
+      border: 2px solid #ae274f;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #888;
+      text-shadow: 1px 1px 1px #000;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
+    }
+
+    #congratulationModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    #congratulationModal .content {
+      background: #1e1e2f;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      border: 2px solid #ae274f;
+      animation: bounceIn 1s ease;
+    }
+
+    #congratulationModal button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ae274f;
+      border: none;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #congratulationModal button:hover {
+      background-color: #ff0000;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
